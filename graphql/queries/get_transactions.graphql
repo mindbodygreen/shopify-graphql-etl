@@ -1,0 +1,32 @@
+   query ($cursor: String, $date: String!) {
+      orders(first: 250, query: $date, after: $cursor) {
+        edges {
+          cursor
+          node {
+            id
+            name
+            transactions {
+              id
+              kind
+              status
+              gateway
+              amountSet {
+                presentmentMoney {
+                  amount
+                  currencyCode
+                }
+              }
+              paymentDetails {
+                ... on CardPaymentDetails {
+                  number
+                }
+              }
+            }
+          }
+        }
+        pageInfo {
+          hasNextPage
+          endCursor
+        }
+      }
+    }

@@ -43,8 +43,9 @@ class SnowflakeConnector:
 # Create a singleton instance
 snowflake_connector = SnowflakeConnector()
 
-def get_active_session() -> Session:
+def create_active_session() -> Session:
     """Helper function to get Snowflake session."""
+    snowflake_connector = SnowflakeConnector()
     return snowflake_connector.get_session()
 
 def close_snowflake_session() -> None:

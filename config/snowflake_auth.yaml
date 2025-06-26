@@ -4,5 +4,5 @@ snowflake:
   database: "ANALYTICS"
   schema: "PUBLIC"
   warehouse: "COMPUTE_WH"
-  user: "IMAHAKUMARA"
-  password: "gEfnun-dewnin-0nadpy"
+  user: ""
+  password: ""

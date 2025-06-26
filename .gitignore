@@ -50,5 +50,4 @@ Thumbs.db
 config/shopify_auth.yaml
 *.log
 
-# Sensitive notebooks (temporary, remove after cleaning)
-notebooks/*.ipynb
+

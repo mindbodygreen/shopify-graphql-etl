@@ -31,8 +31,16 @@ pip install -r requirements.txt
 ```
 
 3. Configure authentication:
-   - Create `config/shopify_auth.yaml` with your Shopify API credentials
+   - Copy `config/shopify_auth.yaml.template` to `config/shopify_auth.yaml`
+   - Edit `config/shopify_auth.yaml` and add your Shopify API credentials
    - Set up Snowflake connection parameters
+   
+   ```bash
+   cp config/shopify_auth.yaml.template config/shopify_auth.yaml
+   # Edit config/shopify_auth.yaml with your credentials
+   ```
+
+   ⚠️ IMPORTANT: Never commit the `shopify_auth.yaml` file as it contains sensitive credentials.
 
 ## Usage
 
@@ -48,6 +56,12 @@ jupyter notebook notebooks/SELLINGPLAN\ -\ SHOPIFY_API.ipynb
 - `config/`: Configuration files
 - `graphql/`: GraphQL query definitions
 - `tests/`: Test files
+
+## Security Notes
+
+- The `config/shopify_auth.yaml` file contains sensitive credentials and is excluded from version control
+- Always use the template file as a reference and create your local config file
+- Never commit API tokens or sensitive credentials to the repository
 
 ## License
 

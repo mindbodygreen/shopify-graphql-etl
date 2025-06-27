@@ -75,6 +75,19 @@ def get_min_date_from_table(SELLING_PLAN_TABLE, DATE_COLUMN, SESSION) :
     return min_date
 
 
+def get_max_date_from_table(SELLING_PLAN_TABLE, DATE_COLUMN, SESSION) :
+
+    try:
+        max_date = SESSION.table(SELLING_PLAN_TABLE)\
+            .select(to_date(col(DATE_COLUMN)).alias("PROCESSED_DATE")).distinct()\
+            .agg(f.max(col("PROCESSED_DATE"))).collect()[0][0]
+        
+    except Exception :
+        max_date = dt.now() - timedelta(days=1)
+
+    return max_date
+
+
 def backfill_date_generator(start_date=dt.date(2020, 1, 1), stop_date=dt.date(2020, 1, 1)):
     """
         generate dated up unit stop date

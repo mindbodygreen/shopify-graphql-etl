@@ -47,8 +47,8 @@ ehthumbs.db
 Thumbs.db
 
 # Project specific
-config/shopify_auth.yaml
-config/snowflake_auth.yaml
+configs/shopify_auth.yaml
+configs/snowflake_auth.yaml
 *.log
 
 # Sensitive notebooks (temporary, remove after cleaning)

@@ -1,9 +1,0 @@
-# Shopify API Configuration Template
-# Rename this file to shopify_auth.yaml and fill in your actual credentials
-
-# Your Shopify Admin API access token
-# This can be generated from your Shopify admin panel
-ACCESS_TOKEN: "your_shopify_access_token_here"
-
-# Optional: Store URL (if needed)
-# STORE_URL: "your-store.myshopify.com" 

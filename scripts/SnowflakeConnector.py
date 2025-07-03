@@ -5,9 +5,10 @@ from typing import Dict, Optional
 
 
 class SnowflakeConnector:
-    def __init__(self, config_path="config/snowflake_auth.yaml"):
+    def __init__(self):
         self._session = None
-        self.config_path = config_path
+        self.config_path = os.path.join(os.path.dirname(__file__), '..', 'configs', 'snowflake_auth.yaml')
+        self.config_path = os.path.abspath(self.config_path)
 
     def get_connection_parameters(self) -> Dict[str, str]:
         """Get Snowflake connection parameters from YAML file."""
@@ -15,17 +16,7 @@ class SnowflakeConnector:
             config = yaml.safe_load(file)
         return config.get("snowflake", {})
 
-    # def get_connection_parameters(self) -> Dict[str, str]:
-    #     """Get Snowflake connection parameters."""
-    #     return {
-    #         "account": "zfb96811.us-east-1",
-    #         "role": "ACCOUNTADMIN",
-    #         "database": "ANALYTICS",
-    #         "schema": "PUBLIC",
-    #         "warehouse": "COMPUTE_WH",
-    #         "user": "",
-    #         "password": ""
-    #     }
+
 
     def get_session(self) -> Session:
         """Get or create Snowflake session."""

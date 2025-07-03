@@ -1,0 +1,27 @@
+query getOrders($cursor: String, $queryString: String!) {
+  orders(first: 250, after: $cursor, query: $queryString) {
+    edges {
+      node {
+        id
+        name
+        processedAt
+        tags
+        lineItems(first: 50) {
+          edges {
+            node {
+              id
+              title
+              sellingPlan {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}
